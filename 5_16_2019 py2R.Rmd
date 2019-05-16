@@ -1,0 +1,78 @@
+---
+title: "5/16"
+author: "Gabe Lord"
+date: "May 16, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(stringr)
+library(testthat)
+library(tictoc)
+library(knitr)
+library(maps)
+library(forcats)
+library(lubridate)
+library(ggmap)
+library(RMariaDB)
+library(plyr)
+library(dplyr)
+library(ggplot2)
+library(SparseM)
+library(quantreg)
+library(stargazer)
+library(haven)
+library(moderndive)
+library(data.table)
+library(gamlr)
+library(glmnet)
+library(caret)
+library(rsq)
+library(assertthat)
+library(glue)
+library(roxygen2)
+library(usethis)
+library(RPostgreSQL)
+library(postGIStools)
+library(rgdal)
+library(rgeos)
+library(sp)
+library(tmap)
+library(leaflet)
+```
+
+```{r}
+library(spData)
+library(ggspatial)
+data(world)
+```
+
+```{r}
+view(world)
+```
+
+```{r}
+africa <- world %>%
+  filter(continent == "Africa")
+```
+
+```{r}
+plot(africa$geom)
+```
+
+
+```{r}
+africa2 <- st_as_sf(africa)
+```
+
+```{r}
+africa_centroid = st_centroid(africa2)
+```
+
+```{r}
+plot(africa2$geom)
+plot(africa_centroid$geom)
+
+```
+
